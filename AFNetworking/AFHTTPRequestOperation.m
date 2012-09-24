@@ -337,6 +337,7 @@ didReceiveResponse:(NSURLResponse *)response
     if ([self.request.HTTPMethod isEqualToString:@"POST"] || [self.request.HTTPMethod isEqualToString:@"PUT"]) {
         NSString *dataString = [[NSString alloc] initWithData:self.request.HTTPBody encoding:NSUTF8StringEncoding];
         [displayString appendFormat:@" -d \'%@\'\n", dataString];
+        [dataString release];
     }
     return displayString;
 }
