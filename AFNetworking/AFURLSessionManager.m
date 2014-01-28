@@ -759,9 +759,9 @@ didCompleteWithError:(NSError *)error
         }
 
         [self removeDelegateForTask:task];
+        
+        [task removeObserver:self forKeyPath:@"state" context:AFTaskStateChangedContext];
     }
-
-    [task removeObserver:self forKeyPath:@"state" context:AFTaskStateChangedContext];
 }
 
 #pragma mark - NSURLSessionDataDelegate
